@@ -14,14 +14,14 @@ test.describe('Login tests', () => {
         const password = loginData.password;
         const department = loginData.department;
         const language = loginData.language;
-        const profileLabelText = 'Teneum Polska';
+        const profileLabelText = loginData.profileLabelText;
+
         // Act
         const loginPanelPage = new LoginPanelPage(page);
         await loginPanelPage.CorrectLogin(user, password, department, language);
 
-        const pulpitPage = new PulpitPage(page);
-
         // Assert
+        const pulpitPage = new PulpitPage(page);
         await pulpitPage.VeryfiProfileLabel(profileLabelText);
     });
     test.afterEach(async ({ page }) => {
