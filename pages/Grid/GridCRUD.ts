@@ -4,7 +4,7 @@ import { addNewRecord, editRecord } from "../../test-data/Grid/Grid.Data";
 export class AddNewRecordPage {
     constructor(private page: Page) { }
     // Add new record form
-    private formName = this.page.locator('.tableHeader'); //weryfikować 
+    private formName = this.page.locator('.tableHeader');
     private btnAddNewRecord = this.page.getByRole('button', { name: ' Dołącz' });
     private btnEditRecord = this.page.getByRole('button', { name: ' Popraw' });
     private btnDeleteRecord = this.page.getByRole('button', { name: ' Usuń' });
