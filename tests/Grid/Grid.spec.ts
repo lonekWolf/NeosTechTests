@@ -14,7 +14,7 @@ test.describe('Grid tests', () => {
         await pulpitPage.VeryfiProfileLabel(loginData.profileLabelText);
     });
 
-    test.only('Add new record', async ({ page }) => {
+    test('Add new record', async ({ page }) => {
         // Arrange
         const tabName = 'Grid crud table name';
         const formName = 'Create new record';
@@ -30,6 +30,24 @@ test.describe('Grid tests', () => {
         // Assert
         await addNewRecord.VeryfyGridAfterRecordAdded();
     });
+
+    test('Edit record', async ({ page }) => {
+        // Arrange
+        const tabName = 'Grid crud table name';
+        const formName = 'Create new record';
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.grid.editRecord.click();
+
+        const pulpitPage = new PulpitPage(page);
+        await pulpitPage.VeryfiTabName(tabName);
+
+        const addNewRecord = new AddNewRecordPage(page);
+        await addNewRecord.ClickBtnAndEditRecord(formName);
+        // Assert
+        await addNewRecord.VeryfyGridAfterRecordEdited();
+    });
+
     test.afterEach(async ({ page }) => {
 
     });
