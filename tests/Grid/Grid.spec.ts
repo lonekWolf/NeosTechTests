@@ -48,6 +48,28 @@ test.describe('Grid tests', () => {
         await addNewRecord.VeryfyGridAfterRecordEdited();
     });
 
+    test('Delete record', async ({ page }) => {
+        // Arrange
+        const tabName = 'Grid crud table name';
+        const formName = 'Create new record';
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+
+        await menuNavigatorComponent.techTestComponent.grid.deleteCurrentRecord.click();
+
+        const pulpitPage = new PulpitPage(page);
+        await pulpitPage.VeryfiTabName(tabName);
+
+        const addNewRecord = new AddNewRecordPage(page);
+        await addNewRecord.ClickRowRecordAndDelete('3');
+        await addNewRecord.ClickRowRecordAndDelete('5');
+        await addNewRecord.ClickRowRecordAndDelete('10');
+        // Assert
+        await addNewRecord.VeryfyGridAfterDeleteRecord('3');
+        await addNewRecord.VeryfyGridAfterDeleteRecord('5');
+        await addNewRecord.VeryfyGridAfterDeleteRecord('10');
+    });
+
     test.afterEach(async ({ page }) => {
 
     });

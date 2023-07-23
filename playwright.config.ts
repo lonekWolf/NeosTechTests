@@ -29,7 +29,10 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
-    video: 'off',
+    video: 'on',
+    launchOptions: {
+      slowMo: 200,
+    },
   },
 
   /* Configure projects for major browsers */
@@ -48,6 +51,7 @@ export default defineConfig({
     //     ...devices['Desktop Firefox'],
     //     viewport: { width: 2560, height: 1329 },
     //   },
+
     // },
 
     // {

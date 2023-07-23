@@ -3,10 +3,11 @@ import { addNewRecord, editRecord } from "../../test-data/Grid/Grid.Data";
 
 export class AddNewRecordPage {
     constructor(private page: Page) { }
-    // Login form
+    // Add new record form
     private formName = this.page.locator('.tableHeader'); //weryfikować 
     private btnAddNewRecord = this.page.getByRole('button', { name: ' Dołącz' });
     private btnEditRecord = this.page.getByRole('button', { name: ' Popraw' });
+    private btnDeleteRecord = this.page.getByRole('button', { name: ' Usuń' });
 
     // Edit form
     private fSmallint = this.page.locator('.panelBorder.marginfix.SPANELCONTENT > .Field_FSMALLINT  > .SACTIONCONTAINER > input').last();
@@ -137,6 +138,23 @@ export class AddNewRecordPage {
         await expect.soft(this.efDate).toHaveText('24-12-2020');
         await expect.soft(this.efString).toHaveText(editRecord.fString);
         await expect.soft(this.efTextBlob).toHaveText(editRecord.fTextBlob);
+    }
+
+    private async ConfirmDeleteRecord(): Promise<void> {
+        await expect(this.page.getByText('Na pewno usunąć rekord?')).toBeVisible();
+        await this.page.getByRole('button', { name: 'Tak' }).click();
+    }
+
+    async ClickRowRecordAndDelete(rowNumber: string): Promise<void> {
+        const rowToDelete = this.page.locator(`//table//span[text()='${rowNumber}' and @class = 'inner-cell']`);
+        await rowToDelete.click();
+        await this.page.waitForSelector('//*[contains(@class, \'Field_REF\')]//*[contains(input, ' + rowNumber + ')]');
+        await this.btnDeleteRecord.click();
+        await this.ConfirmDeleteRecord();
+    }
+
+    async VeryfyGridAfterDeleteRecord(rowNumber: string): Promise<void> {
+        expect(this.page.locator(`//table//span[text()='${rowNumber}' and @class = 'inner-cell']`)).not.toBe({});
     }
 
 }
