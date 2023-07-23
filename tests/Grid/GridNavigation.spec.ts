@@ -17,7 +17,7 @@ test.describe('GridNavigation tests', () => {
         await menuNavigatorComponent.techTestComponent.grid.grid.click();
     });
 
-    test('Find record - expected true', async ({ page }) => {
+    test('Find row record - expected true', async ({ page }) => {
         // Arrange
         const recordToFind = '8';
         // Act
@@ -28,10 +28,10 @@ test.describe('GridNavigation tests', () => {
         await gridNavigation.FindRecord(recordToFind);
 
         // Assert
-        await gridNavigation.VerifyFindRecordTrue(recordToFind);
+        await gridNavigation.VerifyFindRowRecordTrue(recordToFind);
     });
 
-    test('Find record - expected false', async ({ page }) => {
+    test('Find row record - expected false', async ({ page }) => {
         // Arrange
         const recordToFind = '15';
         // Act
@@ -42,6 +42,132 @@ test.describe('GridNavigation tests', () => {
         await gridNavigation.FindRecord(recordToFind);
 
         // Assert
-        await gridNavigation.VerifyFindRecordFalse(recordToFind);
+        await gridNavigation.VerifyFindRowRecordFalse(recordToFind);
+    });
+
+    test('Find record - find record resualt expected true', async ({ page }) => {
+        // Arrange
+        const recordToFind = '3';
+        const expectedResult = 'True';
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+
+        const gridNavigation = new GridNavigationPage(page);
+        await gridNavigation.FindRecord(recordToFind);
+
+        // Assert
+        await gridNavigation.VerifyFindRecordResualt(expectedResult);
+    });
+
+    test('Find record - find record resualt expected false', async ({ page }) => {
+        // Arrange
+        const recordToFind = '17';
+        const expectedResult = 'False';
+
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+
+        const gridNavigation = new GridNavigationPage(page);
+        await gridNavigation.FindRecord(recordToFind);
+
+        // Assert
+        await gridNavigation.VerifyFindRecordResualt(expectedResult);
+    });
+
+    test('First record', async ({ page }) => {
+        // Arrange
+        const recordToFind = '1';
+        const expectedResult = 'True';
+
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+
+        const gridNavigation = new GridNavigationPage(page);
+        await gridNavigation.ActionFirstButtonClick();
+        // Assert
+        await gridNavigation.VerifyFindRecordResualt(expectedResult);
+        await gridNavigation.VerifyFindRowRecordTrue(recordToFind);
+    });
+
+    test('Last record', async ({ page }) => {
+        // Arrange
+        const recordToFind = '10';
+        const expectedResult = 'True';
+
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+
+        const gridNavigation = new GridNavigationPage(page);
+        await gridNavigation.ActionLastButtonClick();
+        // Assert
+        await gridNavigation.VerifyFindRecordResualt(expectedResult);
+        await gridNavigation.VerifyFindRowRecordTrue(recordToFind);
+    });
+
+    test('Next record', async ({ page }) => {
+        // Arrange
+        const recordToFind = '2';
+        const expectedResult = 'True';
+
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+
+        const gridNavigation = new GridNavigationPage(page);
+        await gridNavigation.ActionNextRecord();
+        // Assert
+        await gridNavigation.VerifyFindRecordResualt(expectedResult);
+        await gridNavigation.VerifyFindRowRecordTrue(recordToFind);
+    });
+    test('Next record - out of range', async ({ page }) => {
+        // Arrange
+        const recordToFind = '10';
+        const expectedResult = 'False';
+
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+
+        const gridNavigation = new GridNavigationPage(page);
+        await gridNavigation.ActionLastAndNextRecord();
+        // Assert
+        await gridNavigation.VerifyFindRecordResualt(expectedResult);
+        await gridNavigation.VerifyFindRowRecordTrue(recordToFind);
+    });
+
+    test('Previous record', async ({ page }) => {
+        // Arrange
+        const recordToFind = '9';
+        const expectedResult = 'True';
+
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+
+        const gridNavigation = new GridNavigationPage(page);
+        await gridNavigation.ActionLastAndPreviousRecord();
+        // Assert
+        await gridNavigation.VerifyFindRecordResualt(expectedResult);
+        await gridNavigation.VerifyFindRowRecordTrue(recordToFind);
+    });
+
+    test('Previous record - out of range', async ({ page }) => {
+        // Arrange
+        const recordToFind = '1';
+        const expectedResult = 'False';
+
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+
+        const gridNavigation = new GridNavigationPage(page);
+        await gridNavigation.ActionFirstAndPreviousRecord();
+        // Assert
+        await gridNavigation.VerifyFindRecordResualt(expectedResult);
+        await gridNavigation.VerifyFindRowRecordTrue(recordToFind);
     });
 });

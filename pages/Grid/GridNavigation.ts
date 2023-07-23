@@ -17,11 +17,42 @@ export class GridNavigationPage {
         await this.btnFindRecord.click();
     }
 
-    async VerifyFindRecordTrue(recordToFind: string): Promise<void> {
+    async VerifyFindRowRecordTrue(recordToFind: string): Promise<void> {
         await expect(this.nRefValue).toHaveValue(recordToFind);
     }
 
-    async VerifyFindRecordFalse(recordToFind: string): Promise<void> {
+    async VerifyFindRowRecordFalse(recordToFind: string): Promise<void> {
         await expect(this.nRefValue).not.toHaveValue(recordToFind);
+    }
+
+    async VerifyFindRecordResualt(recordToFind: string): Promise<void> {
+        await expect(this.FindRecordResualt).toHaveValue(recordToFind);
+    }
+
+    async ActionFirstButtonClick(): Promise<void> {
+        await this.btnFirstRecord.click();
+    }
+
+    async ActionLastButtonClick(): Promise<void> {
+        await this.btnLastRecord.click();
+    }
+
+    async ActionNextRecord(): Promise<void> {
+        await this.btnNextRecord.click();
+    }
+
+    async ActionLastAndNextRecord(): Promise<void> {
+        await this.btnLastRecord.click();
+        await this.btnNextRecord.click();
+    }
+
+    async ActionLastAndPreviousRecord(): Promise<void> {
+        await this.btnLastRecord.click();
+        await this.btnPreviousRecord.click();
+    }
+
+    async ActionFirstAndPreviousRecord(): Promise<void> {
+        await this.btnFirstRecord.click();
+        await this.btnPreviousRecord.click();
     }
 }
