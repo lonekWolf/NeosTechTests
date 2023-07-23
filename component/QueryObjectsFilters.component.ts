@@ -1,8 +1,5 @@
 export class QueryObjectsFiltersComponent {
-    constructor(private page) {
-        const queryObjectsFilters = this.page.getByText('QQuery Objects Filters');
-        queryObjectsFilters.click();
-    }
+    constructor(private page) { }
     queryObjectCleanForm = this.page.locator('a').filter({ hasText: 'Query object - clean form' });
     queryObjectMethodFilter = this.page.locator('a').filter({ hasText: 'Query object - method filter' });
     queryObjectConstFilter = this.page.locator('a').filter({ hasText: 'Query object - const filter' });

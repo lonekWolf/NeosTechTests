@@ -1,8 +1,5 @@
 export class GUIComponent {
-    constructor(private page) {
-        const gui = this.page.getByText('GGUI Tests');
-        gui.click();
-    }
+    constructor(private page) { }
     testZakladek = this.page.locator('a').filter({ hasText: 'Test Zakładek' });
     testWidocznościTrybEditOrazPustaDefinicja = this.page.locator('a').filter({ hasText: 'Test Widoczności - tryb EDIT oraz pusta definicja' });
     testEdytowalnościTrybBrowse = this.page.locator('a').filter({ hasText: 'Test Edytowalności - tryb BROWSE' });

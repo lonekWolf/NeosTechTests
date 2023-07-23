@@ -85,7 +85,7 @@ export class AddNewRecordPage {
             state: 'visible'
         })
         await expect.soft(this.aRef).toHaveText('2');
-        // await expect.soft(this.aFSmallint).toHaveText(addNewRecord.fSmallint);
+        await expect.soft(this.aFSmallint).toHaveText(addNewRecord.fSmallint);
         await expect.soft(this.afInteger).toHaveText(addNewRecord.fInteger);
         await expect.soft(this.afBigint).toHaveText(addNewRecord.fBigint);
         await expect.soft(this.afNumeric).toHaveText(addNewRecord.fNumeric);
@@ -100,9 +100,6 @@ export class AddNewRecordPage {
     async ClickBtnAndEditRecord(formName: string): Promise<void> {
         await this.VeryfyFormName(formName);
         await this.btnEditRecord.click();
-        await this.page.locator('.k-window-titlebar').waitFor({
-            state: "visible"
-        })
         await this.EditRecord();
         await this.page.locator('.k-window-titlebar').waitFor({
             state: "hidden"
@@ -110,6 +107,9 @@ export class AddNewRecordPage {
     }
 
     async EditRecord(): Promise<void> {
+        await this.page.locator('.k-window-titlebar').waitFor({
+            state: "visible"
+        })
         await this.fSmallint.fill(editRecord.fSmallint);
         await this.fInteger.fill(editRecord.fInteger);
         await this.fBigint.fill(editRecord.fBigint);
@@ -128,7 +128,7 @@ export class AddNewRecordPage {
 
     async VeryfyGridAfterRecordEdited(): Promise<void> {
         await expect.soft(this.eRef).toHaveText('1');
-        // await expect.soft(this.eFSmallint).toHaveText(editRecord.fSmallint);
+        await expect.soft(this.eFSmallint).toHaveText(editRecord.fSmallint);
         await expect.soft(this.efInteger).toHaveText(editRecord.fInteger);
         await expect.soft(this.efBigint).toHaveText(editRecord.fBigint);
         await expect.soft(this.efNumeric).toHaveText(editRecord.fNumeric);

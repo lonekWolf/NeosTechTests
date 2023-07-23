@@ -5,13 +5,17 @@ import { loginData } from '../../test-data/Login/Login.Data';
 import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
 import { AddNewRecordPage } from '../../pages/Grid/AddNewRecord.Page';
 
-test.describe('Grid tests', () => {
+test.describe('GridCrud tests', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         const loginPanelPage = new LoginPanelPage(page);
         await loginPanelPage.CorrectLogin(loginData.user, loginData.password, loginData.department, loginData.language);
         const pulpitPage = new PulpitPage(page);
         await pulpitPage.VeryfiProfileLabel(loginData.profileLabelText);
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        menuNavigatorComponent.techTestComponent.techTest.click();
+        await menuNavigatorComponent.techTestComponent.grid.grid.click();
+
     });
 
     test('Add new record', async ({ page }) => {
@@ -37,6 +41,7 @@ test.describe('Grid tests', () => {
         const formName = 'Create new record';
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
+
         await menuNavigatorComponent.techTestComponent.grid.editRecord.click();
 
         const pulpitPage = new PulpitPage(page);
@@ -54,7 +59,6 @@ test.describe('Grid tests', () => {
         const formName = 'Create new record';
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-
         await menuNavigatorComponent.techTestComponent.grid.deleteCurrentRecord.click();
 
         const pulpitPage = new PulpitPage(page);
@@ -69,9 +73,4 @@ test.describe('Grid tests', () => {
         await addNewRecord.VeryfyGridAfterDeleteRecord('5');
         await addNewRecord.VeryfyGridAfterDeleteRecord('10');
     });
-
-    test.afterEach(async ({ page }) => {
-
-    });
-
 });

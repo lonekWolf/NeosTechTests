@@ -1,8 +1,5 @@
 export class SetFocusComponent {
-    constructor(private page) {
-        const setFocus = this.page.getByText('SSetFocus');
-        setFocus.click();
-    }
+    constructor(private page) { }
     zagniezdzonaForma = this.page.locator('a').filter({ hasText: 'SetFocus - zagnieżdżona forma' });
     dialogoweEdit = this.page.locator('a').filter({ hasText: 'SetFocus - Dialogowe Edit' });
     focusButton = this.page.locator('a').filter({ hasText: 'SetFocus - focus button' });
