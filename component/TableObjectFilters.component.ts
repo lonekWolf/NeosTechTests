@@ -1,5 +1,6 @@
 export class TableObjectFiltersComponent {
     constructor(private page) { }
+    tableObjectFilters = this.page.locator('a').filter({ hasText: 'Table Object Filters' });
     checkboxFilter = this.page.locator('a').filter({ hasText: 'Checkbox filter' });
     clearObjectMmethodFilter = this.page.locator('a').filter({ hasText: 'Clear object - method filter' });
     clearObjectConstFilter = this.page.locator('a').filter({ hasText: 'Clear object - const filter' });
