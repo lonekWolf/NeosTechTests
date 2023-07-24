@@ -11,14 +11,24 @@ export class FiltersFormPage {
     private fInteger = this.page.locator('.Field_FINTEGER > div > input');
 
 
-    private async ValidationInputs(fString: string): Promise<void> {
+    private async ValidationInputFString(fString: string): Promise<void> {
         await expect(this.fString).toHaveValue(fString);
     }
 
-    async VeryfyGridBeforeTest(fString: string): Promise<void> {
+    private async ValidationInputFRef(FRefMaxValue: number): Promise<void> {
+        const valueFRef = await this.fRef.evaluate(e => (e as HTMLInputElement).value);
+        await expect(Number(valueFRef)).toBeLessThanOrEqual(FRefMaxValue);
+    }
+
+    private async ValidationInputFInteger(FIntegerMaxValue: number): Promise<void> {
+        const valueFInteger = await this.fInteger.evaluate(e => (e as HTMLInputElement).value);
+        await expect(Number(valueFInteger)).toBeLessThanOrEqual(FIntegerMaxValue);
+    }
+
+    async VeryfyFStringGridBeforeTest(fString: string): Promise<void> {
         for (let rowNumber = 1; rowNumber < 6; rowNumber++) {
-            this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
-            await this.ValidationInputs(fString);
+            await this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
+            await this.ValidationInputFString(fString);
         }
     }
 
@@ -26,10 +36,35 @@ export class FiltersFormPage {
         this.changeStringFilter.check();
     }
 
-    async VeryfyGridAfterTest(fString: string): Promise<void> {
+    async VeryfyFStringGridAfterTest(fString: string): Promise<void> {
         for (let rowNumber = 1; rowNumber < 6; rowNumber++) {
-            this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
-            await this.ValidationInputs(fString);
+            await this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
+            await this.ValidationInputFString(fString);
         }
     }
+
+    async VeryfyFIntegerAndFstringInGrid(fString: string, maxFIntegerValue: number): Promise<void> {
+        for (let rowNumber = 1; rowNumber < 4; rowNumber++) {
+            await this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
+            await this.ValidationInputFString(fString);
+            await this.ValidationInputFInteger(maxFIntegerValue);
+        }
+    }
+
+    async VeryfyFRefAndFstringInGrid(fString: string, fRefMaxValue: number): Promise<void> {
+        for (let rowNumber = 1; rowNumber < 4; rowNumber++) {
+            await this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
+            await this.ValidationInputFString(fString);
+            await this.ValidationInputFRef(fRefMaxValue);
+        }
+    }
+
+    async VeryfyFIntegerInGrid(fIntegerMaxValue: number): Promise<void> {
+        for (let rowNumber = 1; rowNumber < 6; rowNumber++) {
+            await this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
+            await this.ValidationInputFInteger(fIntegerMaxValue);
+        }
+    }
+
+
 }
