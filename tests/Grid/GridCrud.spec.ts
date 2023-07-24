@@ -3,7 +3,7 @@ import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
 import { PulpitPage } from '../../pages/Pulpit/Pulpit.page';
 import { loginData } from '../../test-data/Login/Login.Data';
 import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
-import { AddNewRecordPage } from '../../pages/Grid/GridCRUD';
+import { AddNewRecordPage } from '../../pages/Grid/GridCRUD.page';
 
 test.describe('GridCrud tests', () => {
     test.beforeEach(async ({ page }) => {

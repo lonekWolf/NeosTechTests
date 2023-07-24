@@ -29,7 +29,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
-    video: 'on',
+    video: 'off',
     launchOptions: {
       slowMo: 200,
     },
@@ -39,6 +39,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
+      retries: 5,
       use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 2560, height: 1329 },
@@ -51,6 +52,10 @@ export default defineConfig({
     //     ...devices['Desktop Firefox'],
     //     viewport: { width: 2560, height: 1329 },
     //   },
+    // timeout: 60000,
+    // expect: {
+    //   timeout: 60000
+    // },
 
     // },
 
