@@ -23,7 +23,7 @@ test.describe('GRID Filter', () => {
         const ballonhintMessage = `Wyszukiwany tekst posiada nieobsługiwany znak '?'. Nie zostanie on uwzględniony przy wyszukiwaniu.`;
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.cridFilterFullTable.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterFullTable.click();
 
         const gridFilter = new GridFilterPage(page);
         await gridFilter.Search(stringToFind);
@@ -31,7 +31,7 @@ test.describe('GRID Filter', () => {
         await gridFilter.VeryfyBallonHintMessage(ballonhintMessage);
     });
 
-    test.only('Search for hidden value', async ({ page }) => {
+    test('Search for hidden value', async ({ page }) => {
         // Arrange
         const stringToFind = '100';
         // Act
@@ -41,8 +41,29 @@ test.describe('GRID Filter', () => {
         const gridFilter = new GridFilterPage(page);
         await gridFilter.Search(stringToFind);
         // Assert
-        await gridFilter.VeryfyNoDataInGrid();
+        await gridFilter.VeryfyNoData();
     });
 
+    test('Full table search numbers', async ({ page }) => {
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterFullTable.click();
+
+        // Assert
+        const gridFilter = new GridFilterPage(page);
+        await gridFilter.VeryfyNumbers();
+    });
+
+    test('Full table search letters', async ({ page }) => {
+        // Arrange
+        const letters = ['a', 'z', 't', 'q', 'x'];
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterFullTable.click();
+
+        // Assert
+        const gridFilter = new GridFilterPage(page);
+        await gridFilter.VeryfyLetters(letters);
+    });
 
 });
