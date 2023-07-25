@@ -13,12 +13,16 @@ export class GridFilterPage {
     private searchClearButton = this.page.locator('.SGRID-SEARCH button');
     private firstRecordRef = this.page.locator('.tr:nth-child(1) > td:nth-child(2)');
     private ballonhintMessage = this.page.locator('.notificationBoxBodyMessage');
+    private gridNoData = this.page.locator('.k-grid-nodata');
 
 
     async VeryfyBallonHintMessage(ballonhintMessage: string): Promise<void> {
         await expect(this.ballonhintMessage).toHaveText(ballonhintMessage);
     }
 
+    async VeryfyNoDataInGrid(): Promise<void> {
+        await expect(this.gridNoData).toHaveText('Brak danych do wyświetlenia');
+    }
     async Search(stringToFind: string): Promise<void> {
         await this.searchTextIcon.click();
         await this.searchTextInput.fill(stringToFind);

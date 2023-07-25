@@ -30,4 +30,19 @@ test.describe('GRID Filter', () => {
         // Assert
         await gridFilter.VeryfyBallonHintMessage(ballonhintMessage);
     });
+
+    test.only('Search for hidden value', async ({ page }) => {
+        // Arrange
+        const stringToFind = '100';
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterTableWithHiddenFields.click();
+
+        const gridFilter = new GridFilterPage(page);
+        await gridFilter.Search(stringToFind);
+        // Assert
+        await gridFilter.VeryfyNoDataInGrid();
+    });
+
+
 });
