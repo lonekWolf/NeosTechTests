@@ -10,7 +10,6 @@ export class FiltersFormPage {
     private fString = this.page.locator('.Field_FSTRING > div > input');
     private fInteger = this.page.locator('.Field_FINTEGER > div > input');
 
-
     private async ValidationInputFString(fString: string): Promise<void> {
         await expect(this.fString).toHaveValue(fString);
     }
@@ -20,8 +19,8 @@ export class FiltersFormPage {
         await expect(Number(value)).toBeLessThanOrEqual(FRefMaxValue);
     }
 
-    async VeryfyFStringGridBeforeTest(fString: string): Promise<void> {
-        for (let rowNumber = 1; rowNumber < 6; rowNumber++) {
+    async VeryfyFStringinGrid(fString: string, rowsInGrid: number): Promise<void> {
+        for (let rowNumber = 1; rowNumber < rowsInGrid + 1; rowNumber++) {
             await this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
             await this.ValidationInputFString(fString);
         }
@@ -29,13 +28,6 @@ export class FiltersFormPage {
 
     async CheckChaneStringFilter(): Promise<void> {
         this.changeStringFilter.check();
-    }
-
-    async VeryfyFStringGridAfterTest(fString: string): Promise<void> {
-        for (let rowNumber = 1; rowNumber < 6; rowNumber++) {
-            await this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
-            await this.ValidationInputFString(fString);
-        }
     }
 
     async VeryfyFIntegerAndFstringInGrid(fString: string, maxFIntegerValue: number): Promise<void> {
@@ -54,19 +46,11 @@ export class FiltersFormPage {
         }
     }
 
-    // async VeryfyFIntegerInGrid(fIntegerMaxValue: number): Promise<void> {
-    //     for (let rowNumber = 1; rowNumber < 6; rowNumber++) {
-    //         await this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
-    //         await this.ValidationInput(fIntegerMaxValue, this.fInteger);
-    //     }
-    // }
-
-    async VeryfyRow(fIntegerMaxValue: number, rowsInGrid: number): Promise<void> {
+    async VeryfyInputAndRows(fIntegerMaxValue: number, rowsInGrid: number): Promise<void> {
         for (let rowNumber = 1; rowNumber < rowsInGrid + 1; rowNumber++) {
             await this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
             await this.ValidationInput(fIntegerMaxValue, this.fInteger);
         }
     }
-
 
 }

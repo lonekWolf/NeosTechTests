@@ -21,42 +21,46 @@ test.describe('Filtering Objects Based On Table', () => {
         // Arrange
         const FStringBeforeTest = 'AAAA';
         const FStringAfterTest = 'BBBB';
+        const rowInGrid = 5;
+
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.tableObjectFilters.checkboxFilter.click();
 
         const filtersFormPage = new FiltersFormPage(page);
-        await filtersFormPage.VeryfyFStringGridBeforeTest(FStringBeforeTest);
+        await filtersFormPage.VeryfyFStringinGrid(FStringBeforeTest, rowInGrid);
         await filtersFormPage.CheckChaneStringFilter();
         // Assert
-        await filtersFormPage.VeryfyFStringGridAfterTest(FStringAfterTest);
+        await filtersFormPage.VeryfyFStringinGrid(FStringAfterTest, rowInGrid);
     });
 
     test('Clear Object - Const Filter', async ({ page }) => {
         // Arrange
         const FStringAfterTest = 'AAAA';
+        const rowInGrid = 5;
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.tableObjectFilters.clearObjectConstFilter.click();
 
         // Assert
         const filtersFormPage = new FiltersFormPage(page);
-        await filtersFormPage.VeryfyFStringGridAfterTest(FStringAfterTest);
+        await filtersFormPage.VeryfyFStringinGrid(FStringAfterTest, rowInGrid);
     });
 
     test('Clear Object - Method Filter', async ({ page }) => {
         // Arrange
         const FStringAfterTest = 'BBBB';
+        const rowInGrid = 5;
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.tableObjectFilters.clearObjectMmethodFilter.click();
 
         // Assert
         const filtersFormPage = new FiltersFormPage(page);
-        await filtersFormPage.VeryfyFStringGridAfterTest(FStringAfterTest);
+        await filtersFormPage.VeryfyFStringinGrid(FStringAfterTest, rowInGrid);
     });
 
-    test.only('Object with const filter - clear form', async ({ page }) => {
+    test('Object with const filter - clear form', async ({ page }) => {
         // Arrange
         const fIntegerMaxValue = 5;
         const rowInGrid = 5;
@@ -66,7 +70,7 @@ test.describe('Filtering Objects Based On Table', () => {
 
         // Assert
         const filtersFormPage = new FiltersFormPage(page);
-        await filtersFormPage.VeryfyRow(fIntegerMaxValue, rowInGrid);
+        await filtersFormPage.VeryfyInputAndRows(fIntegerMaxValue, rowInGrid);
     });
 
     test('Object with const filter - const filter', async ({ page }) => {
@@ -93,7 +97,7 @@ test.describe('Filtering Objects Based On Table', () => {
 
         // Assert
         const filtersFormPage = new FiltersFormPage(page);
-        await filtersFormPage.VeryfyRow(fIntegerMaxValue, rowInGrid);
+        await filtersFormPage.VeryfyInputAndRows(fIntegerMaxValue, rowInGrid);
     });
 
 
