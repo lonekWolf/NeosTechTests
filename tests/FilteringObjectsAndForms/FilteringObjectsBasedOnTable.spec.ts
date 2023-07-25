@@ -17,7 +17,7 @@ test.describe('Filtering Objects Based On Table', () => {
         await menuNavigatorComponent.techTestComponent.tableObjectFilters.tableObjectFilters.click();
     });
 
-    test('Filtering test on the form using a parameter', async ({ page }) => {
+    test('Filters - Checkbox Filter Test', async ({ page }) => {
         // Arrange
         const FStringBeforeTest = 'AAAA';
         const FStringAfterTest = 'BBBB';
@@ -32,7 +32,19 @@ test.describe('Filtering Objects Based On Table', () => {
         await filtersFormPage.VeryfyFStringGridAfterTest(FStringAfterTest);
     });
 
-    test('Clear Object Method Filter', async ({ page }) => {
+    test('Clear Object - Const Filter', async ({ page }) => {
+        // Arrange
+        const FStringAfterTest = 'AAAA';
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.clearObjectConstFilter.click();
+
+        // Assert
+        const filtersFormPage = new FiltersFormPage(page);
+        await filtersFormPage.VeryfyFStringGridAfterTest(FStringAfterTest);
+    });
+
+    test('Clear Object - Method Filter', async ({ page }) => {
         // Arrange
         const FStringAfterTest = 'BBBB';
         // Act
@@ -44,18 +56,20 @@ test.describe('Filtering Objects Based On Table', () => {
         await filtersFormPage.VeryfyFStringGridAfterTest(FStringAfterTest);
     });
 
-    test('Clear Object Const Filter', async ({ page }) => {
+    test.only('Object with const filter - clear form', async ({ page }) => {
         // Arrange
-        const FStringAfterTest = 'AAAA';
-        // Act
+        const fIntegerMaxValue = 5;
+        const rowInGrid = 5;
+        // Act      
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.clearObjectConstFilter.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.objectWithConstFilterClearForm.click()
 
         // Assert
         const filtersFormPage = new FiltersFormPage(page);
-        await filtersFormPage.VeryfyFStringGridAfterTest(FStringAfterTest);
+        await filtersFormPage.VeryfyRow(fIntegerMaxValue, rowInGrid);
     });
-    test('Const Object Const Filter', async ({ page }) => {
+
+    test('Object with const filter - const filter', async ({ page }) => {
         // Arrange
         const FStringAfterTest = 'AAAA';
         const fIntegerMaxValue = 5;
@@ -68,19 +82,22 @@ test.describe('Filtering Objects Based On Table', () => {
         await filtersFormPage.VeryfyFIntegerAndFstringInGrid(FStringAfterTest, fIntegerMaxValue);
     });
 
-    test.only('ConstObjectClearForm', async ({ page }) => {
+    test('Object with method filter - clear form', async ({ page }) => {
         // Arrange
-        const fInteger = 5;
-        // Act      
+        // const FStringAfterTest = 'BBBB';
+        const rowInGrid = 8;
+        const fIntegerMaxValue = 8;
+        // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.objectWithConstFilterClearForm.click()
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.objectWithMethodFilterClearForm.click()
 
         // Assert
         const filtersFormPage = new FiltersFormPage(page);
-        await filtersFormPage.VeryfyFIntegerInGrid(fInteger);
+        await filtersFormPage.VeryfyRow(fIntegerMaxValue, rowInGrid);
     });
 
-    test('Method Object Method Filter', async ({ page }) => {
+
+    test('Object with method filter - method form', async ({ page }) => {
         // Arrange
         const FStringAfterTest = 'BBBB';
         const fRefMaxValue = 8;
