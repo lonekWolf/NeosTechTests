@@ -46,7 +46,7 @@ export class FiltersFormPage {
         }
     }
 
-    async VeryfyInputAndRows(fIntegerMaxValue: number, rowsInGrid: number): Promise<void> {
+    async VeryfyInputFIntegerAndRows(fIntegerMaxValue: number, rowsInGrid: number): Promise<void> {
         for (let rowNumber = 1; rowNumber < rowsInGrid + 1; rowNumber++) {
             await this.page.locator(`tbody > tr:nth-child(${rowNumber}) > td:nth-child(2)`).first().click();
             await this.ValidationInput(fIntegerMaxValue, this.fInteger);
