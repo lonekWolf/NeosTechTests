@@ -14,7 +14,7 @@ test.describe('GRID Filter', () => {
         await pulpitPage.VeryfiProfileLabel(loginData.profileLabelText);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.techTest.click();
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.tableObjectFilters.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.tableObjectFilters.click();
     });
 
     test('Questionmark test', async ({ page }) => {
@@ -23,7 +23,7 @@ test.describe('GRID Filter', () => {
         const ballonhintMessage = `Wyszukiwany tekst posiada nieobsługiwany znak '?'. Nie zostanie on uwzględniony przy wyszukiwaniu.`;
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterFullTable.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.gridFilterFullTable.click();
 
         const gridFilter = new GridFilterPage(page);
         await gridFilter.Search(stringToFind);
@@ -36,7 +36,7 @@ test.describe('GRID Filter', () => {
         const stringToFind = '100';
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterTableWithHiddenFields.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.gridFilterTableWithHiddenFields.click();
 
         const gridFilter = new GridFilterPage(page);
         await gridFilter.Search(stringToFind);
@@ -47,7 +47,7 @@ test.describe('GRID Filter', () => {
     test('Full table search numbers', async ({ page }) => {
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterFullTable.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.gridFilterFullTable.click();
 
         // Assert
         const gridFilter = new GridFilterPage(page);
@@ -59,7 +59,7 @@ test.describe('GRID Filter', () => {
         const letters = ['a', 'z', 't', 'q', 'x'];
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterFullTable.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.gridFilterFullTable.click();
 
         // Assert
         const gridFilter = new GridFilterPage(page);
@@ -71,7 +71,7 @@ test.describe('GRID Filter', () => {
         const polishLetters = ['ą', 'ż', 'ź', 'ę', 'ł', 'ć', 'ś', 'ó', 'ń'];
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterFullTable.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.gridFilterFullTable.click();
 
         // Assert
         const gridFilter = new GridFilterPage(page);
@@ -83,17 +83,17 @@ test.describe('GRID Filter', () => {
         const specialChars = ['~', '!', '@', '#', '$', '%', '&', '/', '-', '{', '[', '(', ')', '}', ']'];
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterFullTable.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.gridFilterFullTable.click();
 
         // Assert
         const gridFilter = new GridFilterPage(page);
         await gridFilter.VeryfyLetters(specialChars);
     });
-    // //////////////////////////////////////////////////////////////////
+
     test('Hidden fields table search numbers', async ({ page }) => {
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterTableWithHiddenFields.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.gridFilterTableWithHiddenFields.click();
 
         // Assert
         const gridFilter = new GridFilterPage(page);
@@ -105,7 +105,7 @@ test.describe('GRID Filter', () => {
         const letters = ['a', 'z', 't', 'q', 'x'];
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterTableWithHiddenFields.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.gridFilterTableWithHiddenFields.click();
 
         // Assert
         const gridFilter = new GridFilterPage(page);
@@ -117,7 +117,7 @@ test.describe('GRID Filter', () => {
         const polishLetters = ['ą', 'ż', 'ź', 'ę', 'ł', 'ć', 'ś', 'ó', 'ń'];
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterTableWithHiddenFields.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.gridFilterTableWithHiddenFields.click();
 
         // Assert
         const gridFilter = new GridFilterPage(page);
@@ -129,7 +129,7 @@ test.describe('GRID Filter', () => {
         const specialChars = ['~', '!', '@', '#', '$', '%', '&', '/', '-', '{', '[', '(', ')', '}', ']'];
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterTableWithHiddenFields.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.gridFilterTableWithHiddenFields.click();
 
         // Assert
         const gridFilter = new GridFilterPage(page);

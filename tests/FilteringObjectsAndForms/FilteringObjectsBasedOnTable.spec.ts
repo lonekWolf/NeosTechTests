@@ -14,7 +14,7 @@ test.describe('Filtering Objects Based On Table', () => {
         await pulpitPage.VeryfiProfileLabel(loginData.profileLabelText);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.techTest.click();
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.tableObjectFilters.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.tableObjectFilters.click();
     });
 
     test('Checkbox Filter Test', async ({ page }) => {
@@ -25,7 +25,7 @@ test.describe('Filtering Objects Based On Table', () => {
 
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.checkboxFilter.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.checkboxFilter.click();
         const filtersFormPage = new FiltersFormPage(page);
         await filtersFormPage.VeryfyFStringinGrid(FStringBeforeTest, rowInGrid);
         await filtersFormPage.CheckChaneStringFilter();
@@ -39,7 +39,7 @@ test.describe('Filtering Objects Based On Table', () => {
         const rowInGrid = 5;
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.clearObjectConstFilter.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.clearObjectConstFilter.click();
 
         // Assert   Sprawdzamy czy const filtr na formie działa (FSTRING = 'AAAA')
         const filtersFormPage = new FiltersFormPage(page);
@@ -52,7 +52,7 @@ test.describe('Filtering Objects Based On Table', () => {
         const rowInGrid = 5;
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.clearObjectMmethodFilter.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.clearObjectMmethodFilter.click();
 
         // Assert   Sprawdzamy czy metoda na filtrację SQL jest ważniejsza od const filtra (FSTRING = 'BBBB')
         const filtersFormPage = new FiltersFormPage(page);
@@ -65,7 +65,7 @@ test.describe('Filtering Objects Based On Table', () => {
         const rowInGrid = 5;
         // Act      
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.objectWithConstFilterClearForm.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.objectWithConstFilterClearForm.click();
 
         // Assert   Sprawdzamy czy const filter na obiekcie działa (FINTEGER < 5)
         const filtersFormPage = new FiltersFormPage(page);
@@ -78,7 +78,7 @@ test.describe('Filtering Objects Based On Table', () => {
         const fIntegerMaxValue = 5;
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.objectWithConstFilterConstFilter.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.objectWithConstFilterConstFilter.click();
 
         // Assert   Sprawdzamy czy const filter na formie działa (FSTRING = 'AAAA') oraz czy const filter na obiekcie działa (FINTEGER < 5)
         const filtersFormPage = new FiltersFormPage(page);
@@ -91,7 +91,7 @@ test.describe('Filtering Objects Based On Table', () => {
         const fIntegerMaxValue = 8;
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.objectWithMethodFilterClearForm.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.objectWithMethodFilterClearForm.click();
 
         // Assert   Sprawdzamy method filter na obiekcie działa (FINTEGER < 8)
         const filtersFormPage = new FiltersFormPage(page);
@@ -105,7 +105,7 @@ test.describe('Filtering Objects Based On Table', () => {
         const fRefMaxValue = 8;
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.tableObjectFilters.objectWithMethodFilterMethodFilter.click();
+        await menuNavigatorComponent.techTestComponent.tableObjectFiltersComponent.objectWithMethodFilterMethodFilter.click();
 
         // Assert   Sprawdzamy czy method filtr na formie działa (FSTRING = 'BBBB') oraz czy method filter na obiekcie działa (FINTEGER < 8)
         const filtersFormPage = new FiltersFormPage(page);

@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
 import { PulpitPage } from '../../pages/Pulpit/Pulpit.page';
 import { loginData } from '../../test-data/Login/Login.Data';
@@ -14,7 +14,7 @@ test.describe('GridCrud tests', () => {
         await pulpitPage.VeryfiProfileLabel(loginData.profileLabelText);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         menuNavigatorComponent.techTestComponent.techTest.click();
-        await menuNavigatorComponent.techTestComponent.grid.grid.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.grid.click();
 
     });
 
@@ -24,7 +24,7 @@ test.describe('GridCrud tests', () => {
         const formName = 'Create new record';
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.addNewRecord.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.addNewRecord.click();
 
         const pulpitPage = new PulpitPage(page);
         await pulpitPage.VeryfiTabName(tabName);
@@ -42,7 +42,7 @@ test.describe('GridCrud tests', () => {
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
 
-        await menuNavigatorComponent.techTestComponent.grid.editRecord.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.editRecord.click();
 
         const pulpitPage = new PulpitPage(page);
         await pulpitPage.VeryfiTabName(tabName);
@@ -56,10 +56,9 @@ test.describe('GridCrud tests', () => {
     test('Delete record', async ({ page }) => {
         // Arrange
         const tabName = 'Grid crud table name';
-        const formName = 'Create new record';
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.deleteCurrentRecord.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.deleteCurrentRecord.click();
 
         const pulpitPage = new PulpitPage(page);
         await pulpitPage.VeryfiTabName(tabName);

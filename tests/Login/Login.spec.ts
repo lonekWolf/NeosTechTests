@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
 import { PulpitPage } from '../../pages/Pulpit/Pulpit.page';
 import { loginData } from '../../test-data/Login/Login.Data';
@@ -24,8 +24,4 @@ test.describe('Login tests', () => {
         const pulpitPage = new PulpitPage(page);
         await pulpitPage.VeryfiProfileLabel(profileLabelText);
     });
-    test.afterEach(async ({ page }) => {
-
-    });
-
 });

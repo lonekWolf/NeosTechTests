@@ -9,11 +9,11 @@ import { TableObjectFiltersComponent } from "./TableObjectFilters.component";
 export class TechTestComponent {
     constructor(private page) { }
     techTest = this.page.getByText('TTECH TEST');
-    grid = new GridComponent(this.page);
-    setFocus = new SetFocusComponent(this.page);
-    tableObjectFilters = new TableObjectFiltersComponent(this.page);
-    dictionaries = new DictionariesComponent(this.page);
-    gui = new GUIComponent(this.page);
-    methods = new MethodsComponent(this.page);
-    queryObjectsFilters = new QueryObjectsFiltersComponent(this.page);
+    gridComponent = new GridComponent(this.page);
+    setFocusComponent = new SetFocusComponent(this.page);
+    tableObjectFiltersComponent = new TableObjectFiltersComponent(this.page);
+    dictionariesComponent = new DictionariesComponent(this.page);
+    guiComponent = new GUIComponent(this.page);
+    methodsComponent = new MethodsComponent(this.page);
+    queryObjectsFiltersComponent = new QueryObjectsFiltersComponent(this.page);
 }

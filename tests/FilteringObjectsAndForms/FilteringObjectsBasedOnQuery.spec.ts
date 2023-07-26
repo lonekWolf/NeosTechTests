@@ -14,7 +14,7 @@ test.describe('Filtering Objects Based On Query', () => {
         await pulpitPage.VeryfiProfileLabel(loginData.profileLabelText);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.techTest.click();
-        await menuNavigatorComponent.techTestComponent.queryObjectsFilters.queryObjectsFilters.click();
+        await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryObjectsFilters.click();
     });
 
     test('Query data object - clean form', async ({ page }) => {
@@ -24,7 +24,7 @@ test.describe('Filtering Objects Based On Query', () => {
 
         // Act       
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.queryObjectsFilters.queryWithDataFilterCleanForm.click();
+        await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryWithDataFilterCleanForm.click();
 
         // Assert   Sprawdzamy DBfilter FINTEGER < 8
         const filtersFormPage = new FiltersFormPage(page);
@@ -38,7 +38,7 @@ test.describe('Filtering Objects Based On Query', () => {
 
         // Act       
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.queryObjectsFilters.queryWithDataFilterConstFilter.click();
+        await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryWithDataFilterConstFilter.click();
 
         // Assert   Sprawdzamy DBfilter FINTEGER < 8 oraz form const filter FSTRING = AAAA
         const filtersFormPage = new FiltersFormPage(page);
@@ -52,7 +52,7 @@ test.describe('Filtering Objects Based On Query', () => {
 
         // Act       
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.queryObjectsFilters.queryWithDataFilterMethodFilter.click();
+        await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryWithDataFilterMethodFilter.click();
 
         // Assert   Sprawdzamy DBfilter FINTEGER < 8 oraz form const filter FSTRING = BBBB
         const filtersFormPage = new FiltersFormPage(page);
@@ -65,7 +65,7 @@ test.describe('Filtering Objects Based On Query', () => {
         const rowInGrid = 7;
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.queryObjectsFilters.queryWithMethodCleanForm.click();
+        await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryWithMethodCleanForm.click();
 
         // Assert   Sprawdzamy SetDBQuery FINTEGER < 7
         const filtersFormPage = new FiltersFormPage(page);
@@ -79,7 +79,7 @@ test.describe('Filtering Objects Based On Query', () => {
 
         // Act       Query with method - const filter
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.queryObjectsFilters.queryWithMethodConstFilter.click();
+        await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryWithMethodConstFilter.click();
 
         // Assert   Sprawdzamy SetDBQuery FINTEGER < 7 oraz form const filter FSTRING = AAAA
         const filtersFormPage = new FiltersFormPage(page);
@@ -93,7 +93,7 @@ test.describe('Filtering Objects Based On Query', () => {
 
         // Act      
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.queryObjectsFilters.queryWithMethodMethodFilter.click();
+        await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryWithMethodMethodFilter.click();
 
         // Assert   Sprawdzamy SetDBQuery FINTEGER < 7 oraz form const filter FSTRING = BBBB
         const filtersFormPage = new FiltersFormPage(page);
@@ -106,7 +106,7 @@ test.describe('Filtering Objects Based On Query', () => {
 
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.queryObjectsFilters.queryObjectCleanForm.click();
+        await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryObjectCleanForm.click();
 
         // Assert   Sprawdzamy filtr w WHERE FINTEGER < 8
         const filtersFormPage = new FiltersFormPage(page);
@@ -120,7 +120,7 @@ test.describe('Filtering Objects Based On Query', () => {
 
         //Act 
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.queryObjectsFilters.queryObjectConstFilter.click();
+        await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryObjectConstFilter.click();
 
         // Assert   Sprawdzamy filtr w WHERE FINTEGER < 8 oraz const filter FSTRING = AAAA
         const filtersFormPage = new FiltersFormPage(page);
@@ -134,7 +134,7 @@ test.describe('Filtering Objects Based On Query', () => {
 
         // Act     
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.queryObjectsFilters.queryObjectMethodFilter.click();
+        await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryObjectMethodFilter.click();
 
         // Assert   Sprawdzamy filtr w WHERE FINTEGER < 8 oraz method filter FSTRING = BBBB
         const filtersFormPage = new FiltersFormPage(page);

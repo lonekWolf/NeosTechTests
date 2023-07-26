@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
 import { PulpitPage } from '../../pages/Pulpit/Pulpit.page';
 import { loginData } from '../../test-data/Login/Login.Data';
@@ -14,7 +14,7 @@ test.describe('GridNavigation tests', () => {
         await pulpitPage.VeryfiProfileLabel(loginData.profileLabelText);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         menuNavigatorComponent.techTestComponent.techTest.click();
-        await menuNavigatorComponent.techTestComponent.grid.grid.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.grid.click();
     });
 
     test('Find row record - expected true', async ({ page }) => {
@@ -22,7 +22,7 @@ test.describe('GridNavigation tests', () => {
         const recordToFind = '8';
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.rowSelections.click();
 
         const gridNavigation = new GridNavigationPage(page);
         await gridNavigation.FindRecord(recordToFind);
@@ -36,7 +36,7 @@ test.describe('GridNavigation tests', () => {
         const recordToFind = '15';
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.rowSelections.click();
 
         const gridNavigation = new GridNavigationPage(page);
         await gridNavigation.FindRecord(recordToFind);
@@ -51,7 +51,7 @@ test.describe('GridNavigation tests', () => {
         const expectedResult = 'True';
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.rowSelections.click();
 
         const gridNavigation = new GridNavigationPage(page);
         await gridNavigation.FindRecord(recordToFind);
@@ -67,7 +67,7 @@ test.describe('GridNavigation tests', () => {
 
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.rowSelections.click();
 
         const gridNavigation = new GridNavigationPage(page);
         await gridNavigation.FindRecord(recordToFind);
@@ -83,7 +83,7 @@ test.describe('GridNavigation tests', () => {
 
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.rowSelections.click();
 
         const gridNavigation = new GridNavigationPage(page);
         await gridNavigation.ActionFirstButtonClick();
@@ -99,7 +99,7 @@ test.describe('GridNavigation tests', () => {
 
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.rowSelections.click();
 
         const gridNavigation = new GridNavigationPage(page);
         await gridNavigation.ActionLastButtonClick();
@@ -115,7 +115,7 @@ test.describe('GridNavigation tests', () => {
 
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.rowSelections.click();
 
         const gridNavigation = new GridNavigationPage(page);
         await gridNavigation.ActionNextRecord();
@@ -130,7 +130,7 @@ test.describe('GridNavigation tests', () => {
 
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.rowSelections.click();
 
         const gridNavigation = new GridNavigationPage(page);
         await gridNavigation.ActionLastAndNextRecord();
@@ -146,7 +146,7 @@ test.describe('GridNavigation tests', () => {
 
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.rowSelections.click();
 
         const gridNavigation = new GridNavigationPage(page);
         await gridNavigation.ActionLastAndPreviousRecord();
@@ -162,7 +162,7 @@ test.describe('GridNavigation tests', () => {
 
         // Act
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        await menuNavigatorComponent.techTestComponent.grid.rowSelections.click();
+        await menuNavigatorComponent.techTestComponent.gridComponent.rowSelections.click();
 
         const gridNavigation = new GridNavigationPage(page);
         await gridNavigation.ActionFirstAndPreviousRecord();
