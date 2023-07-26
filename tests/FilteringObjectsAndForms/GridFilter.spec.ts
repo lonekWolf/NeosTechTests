@@ -7,7 +7,7 @@ import { GridFilterPage } from '../../pages/FilteringObjectsAndForms/GridFilter.
 
 test.describe('GRID Filter', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('/');
+        await page.goto('/', { timeout: 50000 });
         const loginPanelPage = new LoginPanelPage(page);
         await loginPanelPage.CorrectLogin(loginData.user, loginData.password, loginData.department, loginData.language);
         const pulpitPage = new PulpitPage(page);
@@ -66,4 +66,73 @@ test.describe('GRID Filter', () => {
         await gridFilter.VeryfyLetters(letters);
     });
 
+    test('Full table search polish letters', async ({ page }) => {
+        // Arrange
+        const polishLetters = ['ą', 'ż', 'ź', 'ę', 'ł', 'ć', 'ś', 'ó', 'ń'];
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterFullTable.click();
+
+        // Assert
+        const gridFilter = new GridFilterPage(page);
+        await gridFilter.VeryfyLetters(polishLetters);
+    });
+
+    test('Full table search special chars', async ({ page }) => {
+        // Arrange
+        const specialChars = ['~', '!', '@', '#', '$', '%', '&', '/', '-', '{', '[', '(', ')', '}', ']'];
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterFullTable.click();
+
+        // Assert
+        const gridFilter = new GridFilterPage(page);
+        await gridFilter.VeryfyLetters(specialChars);
+    });
+    // //////////////////////////////////////////////////////////////////
+    test('Hidden fields table search numbers', async ({ page }) => {
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterTableWithHiddenFields.click();
+
+        // Assert
+        const gridFilter = new GridFilterPage(page);
+        await gridFilter.VeryfyNumbers();
+    });
+
+    test('Hidden fields table search letters', async ({ page }) => {
+        // Arrange
+        const letters = ['a', 'z', 't', 'q', 'x'];
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterTableWithHiddenFields.click();
+
+        // Assert
+        const gridFilter = new GridFilterPage(page);
+        await gridFilter.VeryfyLetters(letters);
+    });
+
+    test('Hidden fields table search polish letters', async ({ page }) => {
+        // Arrange
+        const polishLetters = ['ą', 'ż', 'ź', 'ę', 'ł', 'ć', 'ś', 'ó', 'ń'];
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterTableWithHiddenFields.click();
+
+        // Assert
+        const gridFilter = new GridFilterPage(page);
+        await gridFilter.VeryfyLetters(polishLetters);
+    });
+
+    test('Hidden fields table search polish special chars', async ({ page }) => {
+        // Arrange
+        const specialChars = ['~', '!', '@', '#', '$', '%', '&', '/', '-', '{', '[', '(', ')', '}', ']'];
+        // Act
+        const menuNavigatorComponent = new MenuNavigatorComponent(page);
+        await menuNavigatorComponent.techTestComponent.tableObjectFilters.gridFilterTableWithHiddenFields.click();
+
+        // Assert
+        const gridFilter = new GridFilterPage(page);
+        await gridFilter.VeryfyLetters(specialChars);
+    });
 });

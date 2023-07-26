@@ -30,14 +30,15 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
     video: 'off',
-    launchOptions: {
-      slowMo: 200,
-    },
+    // launchOptions: {
+    //   slowMo: 200,
+    // },
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
+      timeout: 50000,
       name: 'chromium',
       retries: 1,
       use: {
