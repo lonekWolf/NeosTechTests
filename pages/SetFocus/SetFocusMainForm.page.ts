@@ -41,6 +41,7 @@ export class SetFocusMainFormPage {
         await butttonToClick.click();
         await expect(elementWithFocus).toBeFocused();
     }
+
     async VeryfyFocus(elementWithFocus: Locator): Promise<void> {
         await expect(elementWithFocus).toBeFocused();
     }
