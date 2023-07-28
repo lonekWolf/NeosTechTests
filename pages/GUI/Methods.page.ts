@@ -7,6 +7,7 @@ export class MethodsPage {
     metodaNaIkone = new CenterPanel(this.page);
     metodaNaEtykiete = new RightCenterPanel(this.page);
     metodaNawalidacje = new RightPanel(this.page);
+
     async VeryfyUnvisible(): Promise<void> {
         await expect(this.metodaNaWidocznosc.fInteger).not.toBeVisible();
         await expect(this.metodaNaWidocznosc.fNumeric).not.toBeVisible();
