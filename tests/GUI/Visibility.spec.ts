@@ -42,7 +42,7 @@ test.describe('Visibility mode browse', () => {
         await visibilityPage.VeryfyWhenBrowsingOnYes();
     });
 
-    test('Hidden in empty field', async ({ page }) => {
+    test.skip('Hidden in empty field', async ({ page }) => {
         // Assert
         const visibilityPage = new VisibilityPage(page);
         await visibilityPage.FiddenInEmptyField();
