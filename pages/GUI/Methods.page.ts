@@ -2,9 +2,6 @@ import { Page, expect } from "@playwright/test";
 
 export class MethodsPage {
     constructor(private page: Page) { }
-
-
-
     metodaNaWidocznosc = new LeftPanel(this.page);
     metodaNaEdytowalnosc = new LeftCenterPanel(this.page);
     metodaNaIkone = new CenterPanel(this.page);
