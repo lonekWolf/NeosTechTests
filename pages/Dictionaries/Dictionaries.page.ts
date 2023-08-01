@@ -1,5 +1,5 @@
 import { Locator, Page, expect } from "@playwright/test";
-import { daysOfTheWeek, dictionariesValues, months } from "../../test-data/Dictionaries/Dictionaries.Data";
+import { daysOfTheWeek, months } from "../../test-data/Dictionaries/Dictionaries.Data";
 
 export class DictionariesPage {
     constructor(private page: Page) { }

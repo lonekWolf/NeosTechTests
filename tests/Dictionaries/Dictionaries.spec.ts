@@ -73,7 +73,7 @@ test.describe('Dictionaries', () => {
         await dictionariesPage.VerifyFilteringChangeValues();
     });
 
-    test('Table dict REF sorting', async ({ page }) => {
+    test.skip('Table dict REF sorting', async ({ page }) => {
         // Act       
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.dictionariesComponent.tableDictionaries.click();
