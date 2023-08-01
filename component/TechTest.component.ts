@@ -16,4 +16,10 @@ export class TechTestComponent {
     guiComponent = new GUIComponent(this.page);
     methodsComponent = new MethodsComponent(this.page);
     queryObjectsFiltersComponent = new QueryObjectsFiltersComponent(this.page);
+
+    async ClickMenuAndTechTestAction(): Promise<void> {
+        await this.page.waitForTimeout(5000);
+        await this.page.getByRole('link', { name: '' }).click();
+        await this.techTest.click();
+    }
 }

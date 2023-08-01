@@ -8,11 +8,10 @@ export class LoginPanelPage {
     department = this.page.locator('#pOddzial');
     selectLanguage = this.page.locator('#loginParams > p:nth-child(4) >span');
     btnLogin = this.page.locator('.LoginButton');
-    // labels
     labelLogin = this.page.locator('#labelLogin');
     labelHaslo = this.page.locator('#labelHaslo');
 
-    async CorrectLogin(login: string, password: string, department: string, selectLanguage: string): Promise<void> {
+    async CorrectLogin(login: string, password: string): Promise<void> {
         await this.login.fill(login);
         await this.password.fill(password);
         await this.login.click();

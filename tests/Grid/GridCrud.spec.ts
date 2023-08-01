@@ -9,11 +9,9 @@ test.describe('GridCrud tests', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         const loginPanelPage = new LoginPanelPage(page);
-        await loginPanelPage.CorrectLogin(loginData.user, loginData.password, loginData.department, loginData.language);
-        const pulpitPage = new PulpitPage(page);
-        await pulpitPage.VeryfiProfileLabel(loginData.profileLabelText);
+        await loginPanelPage.CorrectLogin(loginData.user, loginData.password);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
-        menuNavigatorComponent.techTestComponent.techTest.click();
+        await menuNavigatorComponent.techTestComponent.ClickMenuAndTechTestAction();
         await menuNavigatorComponent.techTestComponent.gridComponent.grid.click();
 
     });

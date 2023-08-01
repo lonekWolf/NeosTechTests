@@ -24,8 +24,12 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'http://10.168.3.244:22047/',
+    // baseURL: 'http://10.168.3.244:22047/',
+    // skopiowany autotest
+    baseURL: 'http://10.168.3.244:60483/',
     // baseURL: 'http://127.0.0.1:3000',
+    // tester2master 
+    // baseURL: 'http://10.168.1.244:60483/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
@@ -53,10 +57,10 @@ export default defineConfig({
     //     ...devices['Desktop Firefox'],
     //     viewport: { width: 2560, height: 1329 },
     //   },
-    // timeout: 60000,
-    // expect: {
-    //   timeout: 60000
-    // },
+    //   // timeout: 60000,
+    //   // expect: {
+    //   //  timeout: 60000
+    //   // },
 
     // },
 
@@ -65,7 +69,7 @@ export default defineConfig({
     //   use: { ...devices['Desktop Safari'] },
     // },
 
-    /* Test against mobile viewports. */
+    /*Test against mobile viewports. * /
     // {
     //   name: 'Mobile Chrome',
     //   use: { ...devices['Pixel 5'] },
