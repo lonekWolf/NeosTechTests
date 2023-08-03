@@ -58,9 +58,9 @@ export default defineConfig({
     //     viewport: { width: 2560, height: 1329 },
     //   },
     //   // timeout: 60000,
-    //   // expect: {
-    //   //  timeout: 60000
-    //   // },
+    //   expect: {
+    //     timeout: 60000
+    //   },
 
     // },
 

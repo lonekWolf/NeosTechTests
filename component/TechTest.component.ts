@@ -5,6 +5,7 @@ import { MethodsComponent } from "./Methods.component";
 import { QueryObjectsFiltersComponent } from "./QueryObjectsFilters.component";
 import { SetFocusComponent } from "./SetFocus.component";
 import { TableObjectFiltersComponent } from "./TableObjectFilters.component";
+import { viewSettingComponent } from "./ViewSettings.component";
 
 export class TechTestComponent {
     constructor(private page) { }
@@ -16,6 +17,7 @@ export class TechTestComponent {
     guiComponent = new GUIComponent(this.page);
     methodsComponent = new MethodsComponent(this.page);
     queryObjectsFiltersComponent = new QueryObjectsFiltersComponent(this.page);
+    viewSetting = new viewSettingComponent(this.page);
 
     async ClickMenuAndTechTestAction(): Promise<void> {
         await this.page.waitForTimeout(5000);
