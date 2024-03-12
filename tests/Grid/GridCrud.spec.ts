@@ -1,9 +1,11 @@
 import { test } from '@playwright/test';
-import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
-import { PulpitPage } from '../../pages/Pulpit/Pulpit.page';
-import { loginData } from '../../test-data/Login/Login.Data';
-import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
-import { AddNewRecordPage } from '../../pages/Grid/GridCRUD.page';
+import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
+import { loginData } from 'test-data/Login/Login.Data';
+import { PulpitPage } from 'pages/Pulpit/Pulpit.page';
+import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
+import { AddNewRecordPage } from 'pages/Grid/GridCRUD.page';
+
+
 
 test.describe('GridCrud tests', () => {
     test.beforeEach(async ({ page }) => {

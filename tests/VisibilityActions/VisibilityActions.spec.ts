@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
-import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
-import { loginData } from '../../test-data/Login/Login.Data';
-import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
-import { VisibilityActions } from '../../pages/VisibilityActions/VisibilityActions.page';
+import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
+import { loginData } from 'test-data/Login/Login.Data';
+import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
+import { VisibilityActions } from 'pages/VisibilityActions/VisibilityActions.page';
 
 test.describe('Visibility Actions', () => {
     test.beforeEach(async ({ page }) => {

@@ -1,8 +1,9 @@
 import { test } from '@playwright/test';
-import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
-import { loginData } from '../../test-data/Login/Login.Data';
-import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
-import { GridFilterPage } from '../../pages/FilteringObjectsAndForms/GridFilter.page';
+import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
+import { loginData } from 'test-data/Login/Login.Data';
+import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
+import { GridFilterPage } from 'pages/FilteringObjectsAndForms/GridFilter.page';
+
 
 test.describe('GRID Filter', () => {
     test.beforeEach(async ({ page }) => {

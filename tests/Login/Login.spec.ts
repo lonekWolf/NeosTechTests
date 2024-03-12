@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
-import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
-import { PulpitPage } from '../../pages/Pulpit/Pulpit.page';
-import { loginData, menuLabelsData, wrongLogins } from '../../test-data/Login/Login.Data';
-import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
+import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
+import { PulpitPage } from 'pages/Pulpit/Pulpit.page';
+import { loginData, menuLabelsData, wrongLogins } from 'test-data/Login/Login.Data';
+import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
 
 test.describe('Correct login tests', () => {
     test('Correct login', async ({ page }) => {

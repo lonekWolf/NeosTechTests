@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
-import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
-import { loginData } from '../../test-data/Login/Login.Data';
-import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
-import { EditablePage } from '../../pages/GUI/Editable.page';
+import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
+import { loginData } from 'test-data/Login/Login.Data';
+import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
+import { EditablePage } from 'pages/GUI/Editable.page';
 
 test.describe('Editable ', () => {
     test.beforeEach(async ({ page }) => {

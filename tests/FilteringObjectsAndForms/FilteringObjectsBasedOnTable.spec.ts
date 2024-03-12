@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
-import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
-import { loginData } from '../../test-data/Login/Login.Data';
-import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
-import { FiltersFormPage } from '../../pages/FilteringObjectsAndForms/FiltersForm.Page';
+import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
+import { loginData } from 'test-data/Login/Login.Data';
+import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
+import { FiltersFormPage } from 'pages/FilteringObjectsAndForms/FiltersForm.page';
 
 test.describe('Filtering Objects Based On Table', () => {
     test.beforeEach(async ({ page }) => {

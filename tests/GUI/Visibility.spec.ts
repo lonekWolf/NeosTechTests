@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
-import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
-import { loginData } from '../../test-data/Login/Login.Data';
-import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
-import { VisibilityPage } from '../../pages/GUI/Visibility.page';
+import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
+import { loginData } from 'test-data/Login/Login.Data';
+import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
+import { VisibilityPage } from 'pages/GUI/Visibility.page';
 
 test.describe('Visibility mode browse', () => {
     test.beforeEach(async ({ page }) => {

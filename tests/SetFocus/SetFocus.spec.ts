@@ -1,9 +1,9 @@
 import { test } from '@playwright/test';
-import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
-import { loginData } from '../../test-data/Login/Login.Data';
-import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
-import { SetFocusMainFormPage } from '../../pages/SetFocus/SetFocusMainForm.page';
-import { SetFocusNestedFormPage } from '../../pages/SetFocus/SetFocusNestedForm.page';
+import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
+import { loginData } from 'test-data/Login/Login.Data';
+import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
+import { SetFocusMainFormPage } from 'pages/SetFocus/SetFocusMainForm.page';
+import { SetFocusNestedFormPage } from 'pages/SetFocus/SetFocusNestedForm.page';
 
 test.describe('SetFocus', () => {
     test.beforeEach(async ({ page }) => {

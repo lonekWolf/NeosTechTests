@@ -1,10 +1,10 @@
 import { test } from '@playwright/test';
-import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
-import { loginData } from '../../test-data/Login/Login.Data';
-import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
-import { MethodsFormBrowsePage } from '../../pages/Methods/MethodsFormBrowse.page';
-import { MethodsFormEditPage } from '../../pages/Methods/MethodsFormEdit.page';
-import { methodsInitData, methodsRecalBrowseData, methodsRecalEditData } from '../../test-data/Methods/Methods.Data';
+import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
+import { loginData } from 'test-data/Login/Login.Data';
+import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
+import { MethodsFormBrowsePage } from 'pages/Methods/MethodsFormBrowse.page';
+import { MethodsFormEditPage } from 'pages/Methods/MethodsFormEdit.page';
+import { methodsInitData, methodsRecalBrowseData, methodsRecalEditData } from 'test-data/Methods/Methods.Data';
 
 test.describe('Methods initialization', () => {
     test.beforeEach(async ({ page }) => {

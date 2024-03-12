@@ -1,8 +1,8 @@
 import { test } from '@playwright/test';
-import { LoginPanelPage } from '../../pages/LoginPanel/LoginPanel.page';
-import { loginData } from '../../test-data/Login/Login.Data';
-import { MenuNavigatorComponent } from '../../component/MenuNavigator.component';
-import { DictionariesPage } from '../../pages/Dictionaries/Dictionaries.page';
+import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
+import { loginData } from 'test-data/Login/Login.Data';
+import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
+import { DictionariesPage } from 'pages/Dictionaries/Dictionaries.page';
 
 test.describe('Dictionaries', () => {
     test.beforeEach(async ({ page }) => {
