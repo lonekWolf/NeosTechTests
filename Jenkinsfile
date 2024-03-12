@@ -19,12 +19,6 @@ pipeline {
           npx playwright test -g "Visibility Actions"
         '''
       }
-      post {
-        success {
-          archiveArtifacts(artifacts: 'homepage-*.png', followSymlinks: false)
-          sh 'rm -rf *.png'
-        }
-      }
     }
   }
 }
