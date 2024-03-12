@@ -1,4 +1,4 @@
-import { GridComponent } from "./Grid.Component";
+import { GridComponent } from "./Grid.component";
 import { DictionariesComponent } from "./Dictionaries.component";
 import { GUIComponent } from "./GUI.component";
 import { MethodsComponent } from "./Methods.component";
