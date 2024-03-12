@@ -5,8 +5,8 @@
     //     "@myhelper/*": ["packages/myhelper/*"] // This mapping is relative to "baseUrl".
     //   }
 
-    // "paths": {
-    //     "@LoginPanelPage/*": ["pages/LoginPanel/*"]
-    //   }
+    "paths": {
+        "@LoginData/*": ["pages/LoginPanel/*"]
+      }
     }
   }

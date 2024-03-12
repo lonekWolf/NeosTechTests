@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
-import { loginData } from 'test-data/Login/Login.Data';
+import { LoginData } from 'test-data/Login/Login.Data';
 import { PulpitPage } from 'pages/Pulpit/Pulpit.page';
 import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
 import { AddNewRecordPage } from 'pages/Grid/GridCRUD.page';
@@ -11,7 +11,7 @@ test.describe('GridCrud tests', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         const loginPanelPage = new LoginPanelPage(page);
-        await loginPanelPage.CorrectLogin(loginData.user, loginData.password);
+        await loginPanelPage.CorrectLogin(LoginData.user, LoginData.password);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.ClickMenuAndTechTestAction();
         await menuNavigatorComponent.techTestComponent.gridComponent.grid.click();

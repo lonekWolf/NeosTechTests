@@ -1,14 +1,14 @@
 import { expect, test } from '@playwright/test';
 import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
 import { PulpitPage } from 'pages/Pulpit/Pulpit.page';
-import { loginData, menuLabelsData, wrongLogins } from 'test-data/Login/Login.Data';
+import { LoginData, menuLabelsData, wrongLogins } from 'test-data/Login/Login.Data';
 import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
 
 test.describe('Correct login tests', () => {
     test('Correct login', async ({ page }) => {
         // Arrange
-        const user = loginData.user;
-        const password = loginData.password;
+        const user = LoginData.user;
+        const password = LoginData.password;
         // Act
         await page.goto('/');
         const loginPanelPage = new LoginPanelPage(page);
@@ -20,8 +20,8 @@ test.describe('Correct login tests', () => {
 
     test('Default language in the menu after logging in', async ({ page }) => {
         // Arrange
-        const user = loginData.user;
-        const password = loginData.password;
+        const user = LoginData.user;
+        const password = LoginData.password;
         const labelOptionLogout = menuLabelsData.labelOptionLogoutPL;
         const labelOptionChangePassword = menuLabelsData.labelOptionChangePasswordPL;
         const labelOptionMobileDevice = menuLabelsData.labelOptionMobileDevicePL;
@@ -39,8 +39,8 @@ test.describe('Correct login tests', () => {
 
     test('English language in the menu after logging in', async ({ page }) => {
         // Arrange
-        const user = loginData.user;
-        const password = loginData.password;
+        const user = LoginData.user;
+        const password = LoginData.password;
         const labelOptionLogout = menuLabelsData.labelOptionLogoutEn;
         const labelOptionChangePassword = menuLabelsData.labelOptionChangePasswordEn;
         const labelOptionMobileDevice = menuLabelsData.labelOptionMobileDeviceEn;
@@ -58,8 +58,8 @@ test.describe('Correct login tests', () => {
 
     test('Logged user and new tab', async ({ page }) => {
         // Arrange
-        const user = loginData.user;
-        const password = loginData.password;
+        const user = LoginData.user;
+        const password = LoginData.password;
         // Act
         await page.goto('/');
         const loginPanelPage = new LoginPanelPage(page);
@@ -77,8 +77,8 @@ test.describe('Correct login tests', () => {
 
     test('Presence of the action in the navigator after login', async ({ page }) => {
         // Arrange
-        const user = loginData.user;
-        const password = loginData.password;
+        const user = LoginData.user;
+        const password = LoginData.password;
         // Act
         await page.goto('/');
         const loginPanelPage = new LoginPanelPage(page);

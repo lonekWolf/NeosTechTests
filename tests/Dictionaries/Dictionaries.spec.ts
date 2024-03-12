@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
-import { loginData } from 'test-data/Login/Login.Data';
+import { LoginData } from 'test-data/Login/Login.Data';
 import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
 import { DictionariesPage } from 'pages/Dictionaries/Dictionaries.page';
 
@@ -8,7 +8,7 @@ test.describe('Dictionaries', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         const loginPanelPage = new LoginPanelPage(page);
-        await loginPanelPage.CorrectLogin(loginData.user, loginData.password);
+        await loginPanelPage.CorrectLogin(LoginData.user, LoginData.password);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.ClickMenuAndTechTestAction();
         await menuNavigatorComponent.techTestComponent.dictionariesComponent.dictionaries.click();

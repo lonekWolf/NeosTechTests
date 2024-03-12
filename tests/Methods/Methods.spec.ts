@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
-import { loginData } from 'test-data/Login/Login.Data';
+import { LoginData } from 'test-data/Login/Login.Data';
 import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
 import { MethodsFormBrowsePage } from 'pages/Methods/MethodsFormBrowse.page';
 import { MethodsFormEditPage } from 'pages/Methods/MethodsFormEdit.page';
@@ -10,7 +10,7 @@ test.describe('Methods initialization', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         const loginPanelPage = new LoginPanelPage(page);
-        await loginPanelPage.CorrectLogin(loginData.user, loginData.password);
+        await loginPanelPage.CorrectLogin(LoginData.user, LoginData.password);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.ClickMenuAndTechTestAction();
         await menuNavigatorComponent.techTestComponent.methodsComponent.methods.click();
@@ -63,7 +63,7 @@ test.describe('Methods recalculation', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         const loginPanelPage = new LoginPanelPage(page);
-        await loginPanelPage.CorrectLogin(loginData.user, loginData.password);
+        await loginPanelPage.CorrectLogin(LoginData.user, LoginData.password);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.ClickMenuAndTechTestAction();
         await menuNavigatorComponent.techTestComponent.methodsComponent.methods.click();

@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import { LoginPanelPage } from 'pages/LoginPanel/LoginPanel.page';
-import { loginData } from 'test-data/Login/Login.Data';
+import { LoginData } from 'test-data/Login/Login.Data';
 import { MenuNavigatorComponent } from 'component/MenuNavigator.component';
 import { FiltersFormPage } from 'pages/FilteringObjectsAndForms/FiltersForm.page';
 
@@ -9,7 +9,7 @@ test.describe('Filtering Objects Based On Query', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         const loginPanelPage = new LoginPanelPage(page);
-        await loginPanelPage.CorrectLogin(loginData.user, loginData.password);
+        await loginPanelPage.CorrectLogin(LoginData.user, LoginData.password);
         const menuNavigatorComponent = new MenuNavigatorComponent(page);
         await menuNavigatorComponent.techTestComponent.ClickMenuAndTechTestAction();
         await menuNavigatorComponent.techTestComponent.queryObjectsFiltersComponent.queryObjectsFilters.click();
