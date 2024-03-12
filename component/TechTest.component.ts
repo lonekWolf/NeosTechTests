@@ -6,6 +6,7 @@ import { QueryObjectsFiltersComponent } from "./QueryObjectsFilters.component";
 import { SetFocusComponent } from "./SetFocus.component";
 import { TableObjectFiltersComponent } from "./TableObjectFilters.component";
 import { viewSettingComponent } from "./ViewSettings.component";
+import { visibilityActions } from "./VisibilityActions.component";
 
 export class TechTestComponent {
     constructor(private page) { }
@@ -18,6 +19,7 @@ export class TechTestComponent {
     methodsComponent = new MethodsComponent(this.page);
     queryObjectsFiltersComponent = new QueryObjectsFiltersComponent(this.page);
     viewSetting = new viewSettingComponent(this.page);
+    visibilityActions = new visibilityActions(this.page);
 
     async ClickMenuAndTechTestAction(): Promise<void> {
         await this.page.waitForTimeout(5000);
