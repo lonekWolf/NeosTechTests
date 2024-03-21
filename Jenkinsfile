@@ -20,5 +20,9 @@ pipeline {
         '''
       }
     }
-  }
+  } post {
+        success {
+          archiveArtifacts artifacts: 'playwright-report', followSymlinks: false
+        }
+    } 
 }
