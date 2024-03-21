@@ -143,6 +143,43 @@ test.describe('Login panel tests', () => {
     });
 
 
+    test('Przeobienie testu na stepy', async ({ page }) => {
+        // Arrange
+        const user = 'mszczepanski';
+        const password = 'mszczepanski';
+        const alertMessage = wrongLogins.alertMessagePL;
+        const alertMessageAfterBlocking = wrongLogins.alertMessageAfterBlocking;
+        // Act
+        const loginPanelPage = new LoginPanelPage(page);
+        await test.step('Pierwszy', async () => {
+            await page.goto('/');
+            await loginPanelPage.CorrectLogin(user, password);
+            await loginPanelPage.VerifyIncorrectLogin(alertMessage);
+        });
+
+        const secondPage = await page.context().newPage();
+        await test.step('Drugi', async () => {
+            await secondPage.goto('/');
+            await loginPanelPage.CorrectLogin(user, password);
+            await loginPanelPage.VerifyIncorrectLogin(alertMessage);
+        });
+
+        const thirdPage = await page.context().newPage();
+        await test.step('Trzeci ', async () => {
+            await thirdPage.goto('/');
+            await loginPanelPage.CorrectLogin(user, password);
+            await loginPanelPage.VerifyIncorrectLogin(alertMessage);
+        });
+
+        await test.step('Trzeci niepoprawny', async () => {
+            await thirdPage.goto('/');
+            await loginPanelPage.CorrectLogin(user, password);
+            // Assert
+            await loginPanelPage.VerifyIncorrectLogin(alertMessageAfterBlocking);
+        });
+
+    });
+
     test('Profile Teneum default language on the login page', async ({ page }) => {
         // Arrange
         const labelLoginPl = menuLabelsData.labelLoginPl;
