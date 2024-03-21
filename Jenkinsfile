@@ -24,7 +24,7 @@ pipeline {
   post {
         success {
           archiveArtifacts allowEmptyArchive: true,
-          artifacts: 'workspace/playwright-report/*.*'
+          artifacts: 'playwright-report/*.*'
         }
     } 
 }
