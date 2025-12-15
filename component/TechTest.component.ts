@@ -22,8 +22,12 @@ export class TechTestComponent {
     visibilityActions = new visibilityActions(this.page);
 
     async ClickMenuAndTechTestAction(): Promise<void> {
-        await this.page.waitForTimeout(5000);
-        await this.page.getByRole('link', { name: '' }).click();
+        // Wait for menu link to be visible and ready
+        const menuLink = this.page.getByRole('link', { name: '' });
+        await menuLink.waitFor({ state: 'visible' });
+        await menuLink.click();
+        // Wait for tech test action to be visible
+        await this.techTest.waitFor({ state: 'visible' });
         await this.techTest.click();
     }
 }

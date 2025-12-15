@@ -70,7 +70,8 @@ export class ViewSettingPage {
         await this.formSaveAs.inputViewName.fill(viewName);
         await this.formSaveAs.checkboxPublic.check();
         await this.formSaveAs.checkboxPredef.check();
-        await this.page.waitForTimeout(1000);
+        // Wait for save button to be enabled and ready
+        await this.formSaveAs.btnSave.waitFor({ state: 'visible' });
         await this.formSaveAs.btnSave.click();
     }
 
@@ -84,8 +85,9 @@ export class ViewSettingPage {
     async OpenNewTabAndVeryfyCreatedView(viewName: string, expectedFormLabel: string): Promise<void> {
         const nextPage = await this.page.context().newPage();
         await nextPage.goto('/');
-        await this.page.waitForTimeout(2000);
+        // Wait for page to load - check for menu navigator component
         const menuNavigatorComponent = new MenuNavigatorComponent(nextPage);
+        await menuNavigatorComponent.techTestComponent.techTest.waitFor({ state: 'visible' });
         await menuNavigatorComponent.techTestComponent.viewSetting.viewSettingForm.click();
         const viewSetting = new ViewSettingPage(nextPage);
         await viewSetting.ClickButtonAndSelectView(viewName);

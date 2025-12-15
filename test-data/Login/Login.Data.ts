@@ -1,7 +1,7 @@
 export const LoginData = {
-    // CorrectLogin
-    user: 'sente',
-    password: 'makumba',
+    // CorrectLogin - loaded from environment variables
+    user: process.env.LOGIN_USER || '',
+    password: process.env.LOGIN_PASSWORD || '',
 }
 
 export const menuLabelsData = {
@@ -25,9 +25,9 @@ export const menuLabelsData = {
 }
 
 export const wrongLogins = {
-    user: 'agorecki',
-    password: 'nietohaslo',
-    userToBlock: 'mszczepanski',
+    user: process.env.WRONG_LOGIN_USER || '',
+    password: process.env.WRONG_LOGIN_PASSWORD || '',
+    userToBlock: process.env.WRONG_LOGIN_USER_TO_BLOCK || '',
     allertMessageEN: `Couldn't log in`,
     alertMessagePL: 'Nie udało się zalogować',
     alertMessageAfterBlocking: 'Zablokowano możliwość logowania z powodu 3 nieudanych prób. Ponowne logowanie będzię możliwe dopiero za',

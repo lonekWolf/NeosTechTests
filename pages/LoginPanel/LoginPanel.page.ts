@@ -15,7 +15,8 @@ export class LoginPanelPage {
         await this.login.fill(login);
         await this.password.fill(password);
         await this.login.click();
-        await this.page.waitForTimeout(2000);
+        // Wait for login button to be enabled and ready
+        await this.btnLogin.waitFor({ state: 'visible' });
         await this.btnLogin.click();
     }
 

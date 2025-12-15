@@ -70,8 +70,9 @@ export class DictionariesPage {
 
     private async VeryfySorting(dictionary: Locator): Promise<void> {
         await dictionary.click();
-
-        await this.page.waitForTimeout(500);
+        // Wait for dropdown menu to be visible
+        const dropdownMenu = this.page.locator('.k-state-border-up ul');
+        await dropdownMenu.waitFor({ state: 'visible' });
         for (let index = 1; index < 8; index++) {
             await expect.soft(this.page.locator(`.k-state-border-up ul li:nth-child(${index})`).first()).toHaveText(daysOfTheWeek[index - 1], { timeout: 100 });
         }
@@ -127,16 +128,18 @@ export class DictionariesPage {
     }
 
     async VerifySortingByRef(): Promise<void> {
-        await this.page.waitForTimeout(1000);
+        // Wait for dictionaries to be ready before verifying sorting
+        await this.dictParamComboboxSortByRef.waitFor({ state: 'visible' });
         await this.VeryfySorting(this.dictParamComboboxSortByRef);
-        await this.page.waitForTimeout(1000);
+        await this.dictFSmallintComboboxSortByRef.waitFor({ state: 'visible' });
         await this.VeryfySorting(this.dictFSmallintComboboxSortByRef);
-        await this.page.waitForTimeout(1000);
+        await this.dictFIntegerDropdownSortByRef.waitFor({ state: 'visible' });
         await this.VeryfySorting(this.dictFIntegerDropdownSortByRef);
-        await this.page.waitForTimeout(1000);
+        await this.dictParamDropdownSortByRef.waitFor({ state: 'visible' });
         await this.VeryfySorting(this.dictParamDropdownSortByRef);
+        await this.dictFBigintEditFieldsSortByRef.waitFor({ state: 'visible' });
         await this.fieldsInDictionary.VeryfySorting(this.dictFBigintEditFieldsSortByRef);
-        await this.page.waitForTimeout(1000);
+        await this.dictParamEditFieldsSortByRef.waitFor({ state: 'visible' });
         await this.fieldsInDictionary.VeryfySorting(this.dictParamEditFieldsSortByRef);
     }
 }
@@ -148,7 +151,11 @@ class FieldsInDictionary {
 
     async VeryfySorting(dictionary: Locator): Promise<void> {
         await dictionary.click();
-        await this.page.waitForTimeout(1000);
+        // Wait for dictionary table to be visible and loaded
+        const dictionaryTable = this.page.locator('.Object_DAYSOFTHEWEEK');
+        await dictionaryTable.waitFor({ state: 'visible' });
+        // Wait for first row to be visible to ensure table is loaded
+        await this.page.locator('.Object_DAYSOFTHEWEEK tr:nth-child(1)').waitFor({ state: 'visible' });
         for (let index = 1; index < 8; index++) {
             await expect.soft(this.page.locator(`.Object_DAYSOFTHEWEEK tr:nth-child(${index}) td:nth-child(2) span:nth-child(1)`).first()).toHaveText(String(index), { timeout: 1000 });
             await expect.soft(this.page.locator(`.Object_DAYSOFTHEWEEK tr:nth-child(${index}) td:nth-child(3) span:nth-child(1)`).first()).toHaveText(daysOfTheWeek[index - 1], { timeout: 1000 });
