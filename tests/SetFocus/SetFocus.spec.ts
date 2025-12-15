@@ -151,12 +151,6 @@ test.describe('SetFocus', () => {
         //  Przycisk focusujący przycisk: Focus edit field
         await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.leftForm.focusEditButton, setFocusNestedForm.leftForm.focusEditFieldButton);
 
-        /* Nie działa
-        await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.leftForm.focusEditFieldButton, setFocusNestedForm.leftForm.textboxFINTEGER);
-        await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.leftForm.focusCheckboxFieldButton, setFocusNestedForm.leftForm.labelFSMALLINT); 
-        await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.leftForm.focusCalcFieldButton, setFocusNestedForm.leftForm.nestedTextboxFNUMERIC);
-        await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.leftForm.focusComboboxFieldButton, setFocusNestedForm.leftForm.nestedTextboxFNUMERIC);*/
-
         //  Sprawdzamy focus prawej zagnieżdżonej formy browse
         //  Sprawdzamy focus na unikalnym buttonie
         await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.rightForm.focusNestedParameterButton, setFocusNestedForm.rightForm.focusNestedCalcParamButton);
@@ -164,10 +158,5 @@ test.describe('SetFocus', () => {
         await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.rightForm.focusNestedAliasFieldButton, setFocusNestedForm.rightForm.nestedTextboxFINTEGER);
         await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.rightForm.focusNestedAliasParameterButton, setFocusNestedForm.rightForm.nestedTextboxEditParam);
         await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.rightForm.focusNestedEditFieldButton, setFocusNestedForm.rightForm.nestedTextboxFINTEGER);
-
-        /* Nie działa 
-        await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.rightForm.focusNestedCheckboxFieldButton, setFocusNestedForm.rightForm.nestedLabelFSMALLINT);
-        await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.rightForm.focusNestedComboboxFieldButton, setFocusNestedForm.rightForm.nestedDropdownSelectFSTRING);
-        await setFocusNestedForm.ClickButtonAndVeryfyFocus(setFocusNestedForm.rightForm.focusNestedCalcParamButton, setFocusNestedForm.rightForm.nestedTextboxFNUMERIC);*/
     });
 });
