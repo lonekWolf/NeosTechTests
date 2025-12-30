@@ -1,0 +1,26 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:debug": "playwright test --debug",
+    "testDictionaries": "playwright test tests/Dictionaries --headed",
+    "testFilteringObjectsAndForms": "playwright test tests/FilteringObjectsAndForms --headed",
+    "testGrid": "playwright test tests/Grid --headed",
+    "testGUI": "playwright test tests/GUI --headed",
+    "testLogin": "playwright test tests/Login --headed",
+    "testMethods": "playwright test tests/Methods --headed",
+    "testSetFocus": "playwright test tests/SetFocus --headed",
+    "testViewSettings": "playwright test tests/ViewSettings --headed",
+    "testVisibilityActions": "playwright test tests/VisibilityActions --headed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.35.1",
+    "dotenv": "^16.3.1",
+    "prettier": "3.0.0"
+  }
+}
